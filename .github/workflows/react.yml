@@ -22,3 +22,4 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm i --force
       - run: npm run build
+      - run: mv /home/differenz115/hello-react/hello-react/reactjs-ecom-github-actions/reactjs-ecom-github-actions
