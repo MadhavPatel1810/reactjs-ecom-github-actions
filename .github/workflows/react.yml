@@ -1,44 +1,28 @@
-name: Node.js CI/CD
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-on: [push] # tells github to run this on any push to the repository
+name: React CI/CD
+
+on:
+  push:
+    branches: [deploy]
 
 jobs:
-  test: # names the job
-    runs-on: ubuntu-latest # sets the version of linux we want to use, should be what you have on your server
+  build:
+    runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: false # tells github to not run further steps if this one fails
       matrix:
-        node-version: [12.x] # sets the version of node we want to use, should be what you have on your server
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2 # fetches your commit to test it
-      - name: Use Node.js ${{ matrix.node-version }} # names our step
-        uses: actions/setup-node@v1 # downloads node and npm
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install # installs your dependencies
-      - run: npm run test # builds your app
-      - run: npm test # runs your test suite
-        env:
-          CI: true # shows terminal output!
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test # this job depends on "test" having finished
-    if: github.ref == 'refs/heads/master' # we tell Github to only execute this step if we're on our master branch (so we don't put unfinished branches in production)
-    steps:
-      - name: Deploying to Digitalocean droplet
-        uses: appleboy/ssh-action@master # An action made to control Linux servers
-        with: # We set all our secrets here for the action, these won't be shown in the action logs
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd <your-app-folder> # we move into our app's folder
-            git pull # we pull any changes from git
-            npm prune # we remove any unused dependencies
-            npm install # we install any missing dependencies
-            npm run build # we build our app
-            pm2 reload all # we reload the app via PM2
+          cache: "npm"
+      - run: npm i
+      - run: npm run build --if-present
+      - run: npm test
