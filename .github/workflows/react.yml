@@ -16,10 +16,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          path: ${{ github.repository }}
-          fetch-depth: 0
+      - uses: google-github-actions/deploy-cloudrun@main
       - name: Copy folder content recursively to vps
         uses: ./
         with:
