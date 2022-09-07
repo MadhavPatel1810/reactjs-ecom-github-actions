@@ -20,18 +20,8 @@ jobs:
         uses: ./
         with:
           local: build
-<<<<<<< HEAD
           remote: /var/www/html
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-    
-      
-      
-=======
-          remote: /var/www/html/build
-          host: ${{ SECRETS.HOST }}
-          username: ${{ SECRETS.USERNAME }}
-          password: ${{ SECRETS.PASSWORD }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
->>>>>>> 8d8c829 (Deploy commit on 07-09-2022)
