@@ -20,7 +20,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           branch: deploy
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
       - name: Copy folder content recursively to vps
         uses: ./
         with:
