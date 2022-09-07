@@ -21,7 +21,7 @@ jobs:
         uses: ./
         with:
           local: build
-          remote: /var/www/html
-          host: 192.168.1.115
-          username: madhavpatel1810
-          password: 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
+          remote: /var/www/html/build
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
