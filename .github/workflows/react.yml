@@ -23,7 +23,7 @@ jobs:
       - name: Copy folder content recursively to vps
         with:
           local: build
-          remote: /var/www/html
+          remote: /var/www/html/build
           host: 192.168.1.115
           username: madhavpatel1810
           password: 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
