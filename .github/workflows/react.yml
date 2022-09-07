@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - name: Copy folder content recursively to vps
-        uses: garygrossgarten/github-action-scp@release
+        uses: MadhavPatel1810/reactjs-ecom-github-actions@release
         with:
           local: build
-          remote: /var/www/html/build
+          remote: /var/www/html
           host: ${{ SECRETS.HOST }}
           username: ${{ SECRETS.USERNAME }}
           password: ${{ SECRETS.PASSWORD }}
