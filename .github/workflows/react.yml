@@ -15,10 +15,13 @@ jobs:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    env:
-      CI: ""
     steps:
-      - uses: actions/checkout@v3
-      - run: npm i --force
-      - run: npm run build
-      - run: mv /home/differenz115/hello-react/hello-react/reactjs-ecom-github-actions/reactjs-ecom-github-actions/build /home/differenz115/hello-react/hello-react/reactjs-ecom-github-actions/reactjs-ecom-github-actions/nginx-default
+      - name: Copy folder content recursively to vps
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: build
+          remote: /var/www/html
+          host: ${{ SECRETS.HOST }}
+          username: ${{ SECRETS.USERNAME }}
+          password: ${{ SECRETS.PASSWORD }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
