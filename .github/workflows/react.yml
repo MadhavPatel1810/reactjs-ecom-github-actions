@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Copy folder content recursively to vps
-        uses: reactjs-ecom-github-actions/github-action-scp@release
+        uses: garygrossgarten/github-action-scp@release
         with:
           local: build
           remote: /var/www/html/build
