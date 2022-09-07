@@ -16,11 +16,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: Push changes
-        uses: ./
-        with:
-          branch: deploy
-          github_token: ${{ secrets.TOKEN }}
       - name: Copy folder content recursively to vps
         uses: ./
         with:
@@ -29,6 +24,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    
       
       
