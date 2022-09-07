@@ -17,7 +17,7 @@ jobs:
     env:
       CI: ""
     steps:
-      - uses: actions/checkout@v3 ${{ github.repository }}
+      - uses: actions/checkout@v3 ${{github.reactjs-ecom-github-actions}}
       - name: Copy folder content recursively to vps
         uses: ./
         with:
