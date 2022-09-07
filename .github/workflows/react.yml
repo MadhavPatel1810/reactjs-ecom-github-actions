@@ -25,3 +25,5 @@ jobs:
           username: ${{ SECRETS.USERNAME }}
           password: ${{ SECRETS.PASSWORD }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: actions/checkout
+      
