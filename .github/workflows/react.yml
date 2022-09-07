@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Copy folder content recursively to vps
-        uses: madhavpatel1810/reactjs-ecom-github-actions@release
+        uses: ./
         with:
           local: build
           remote: /var/www/html
