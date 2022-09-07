@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ./
         with:
           branch: deploy
           github_token: ${{ secrets.TOKEN }}
