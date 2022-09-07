@@ -16,7 +16,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: MadhavPatel1810/reactjs-ecom-github-actions@deploy
       - name: Copy folder content recursively to vps
         uses: ./
         with:
