@@ -17,6 +17,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          path: ${{ github.repository }}
+          fetch-depth: 0
       - name: Copy folder content recursively to vps
         uses: ./
         with:
