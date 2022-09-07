@@ -17,9 +17,7 @@ jobs:
     env:
       CI: ""
     steps:
-      - uses: actions/checkout@v1
-      - name: My first step
-      - uses: ./.github/actions/hello-react
+      - uses: actions/checkout@v3 ${{ github.repository }}
       - name: Copy folder content recursively to vps
         uses: ./
         with:
