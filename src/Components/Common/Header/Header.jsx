@@ -83,8 +83,8 @@ export const Header = () => {
               alt="Stark Industries"
               className="image-fluid navLogo"
             />
-            <h2>React</h2>
           </Link>
+          <h2>React CI/CD</h2>
           <button
             className="navbar-toggler"
             type="button"
