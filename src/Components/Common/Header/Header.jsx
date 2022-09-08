@@ -84,7 +84,6 @@ export const Header = () => {
               className="image-fluid navLogo"
             />
           </Link>
-          <h2>React CI/CD</h2>
           <button
             className="navbar-toggler"
             type="button"
