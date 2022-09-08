@@ -13,7 +13,7 @@ jobs:
       CI: false
     steps:
       - name: Copy folder content recursively to vps
-        uses: MadhavPatel1810/reactjs-ecom-github-actions@ref
+        uses: MadhavPatel1810/reactjs-ecom-github-actions@deploy
         with:
           local: build
           remote: /var/www/html/build
