@@ -5,7 +5,7 @@ import { PrivateRoutes } from "./Routes/PrivateRoutes";
 function App() {
   return (
     <div>
-    <h1>Hello World: Madhav</h1>
+    <h1>Hello World: Madhav Patel</h1>
       <Layouts>
         <PrivateRoutes />
       </Layouts>
