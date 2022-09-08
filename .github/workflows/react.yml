@@ -1,29 +1,23 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 name: React CI/CD
+
 on:
   push:
     branches: [deploy]
+
 jobs:
-  build:
+  Explore-GitHub-Actions:
     runs-on: self-hosted
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     env:
-      CI: ""
+      CI: false
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Copy folder content recursively to vps
+        uses: garygrossgarten/github-action-scp@release
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install Packages
-        run: npm install --force
-      - name: Deploy to GH Pages
-        run: |
-          git config user.email ${{secrets.EMAIL}}
-          git config user.name ${{secrets.NAME}}
-          git remote set-url origin https://${{secrets.TOKEN}}@github.com/MadhavPatel1810/reactjs-ecom-github-actions.git
-          npm run deploy
+          local: build
+          remote: /var/www/html/build
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
