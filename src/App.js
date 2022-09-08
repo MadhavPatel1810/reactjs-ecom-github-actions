@@ -6,7 +6,6 @@ function App() {
   return (
     <div>
       <Layouts>
-        <h1>React CI/CD</h1>
         <PrivateRoutes />
       </Layouts>
     </div>
