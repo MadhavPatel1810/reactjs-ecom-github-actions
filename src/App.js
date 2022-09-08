@@ -5,6 +5,7 @@ import { PrivateRoutes } from "./Routes/PrivateRoutes";
 function App() {
   return (
     <div>
+      <h1>React CI/CD</h1>
       <Layouts>
         <PrivateRoutes />
       </Layouts>
