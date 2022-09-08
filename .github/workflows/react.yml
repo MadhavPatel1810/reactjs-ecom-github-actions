@@ -14,6 +14,16 @@ jobs:
     env:
       CI: ""
     steps:
-      - uses: actions/checkout@v3
-      - run: npm i --force
-      - run: npm run build
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Packages
+        run: npm install --force
+      - name: Deploy to GH Pages
+        run: |
+          git config user.email ${{secrets.EMAIL}}
+          git config user.name ${{secrets.NAME}}
+          git remote set-url origin https://${{secrets.TOKEN}}@github.com/MadhavPatel1810/reactjs-ecom-github-actions.git
+          npm run deploy
