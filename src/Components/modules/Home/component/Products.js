@@ -83,7 +83,7 @@ const Products = () => {
   return (
     <div className="container pt-5">
       {location.pathname !== "/shop" && (
-        <span className="productOverview">Products Overview</span>
+        <span className="productOverview">Products Overview App</span>
       )}
 
       <div className="row pt-4 pb-4">
