@@ -77,7 +77,6 @@ export const Header = () => {
         }
       >
         <div className="container ">
-          <p>hmmmmm</p>
           <Link className="navbar-brand" to="#">
             <img
               src={navLogo}
